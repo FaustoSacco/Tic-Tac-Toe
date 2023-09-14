@@ -3,24 +3,25 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(118, 112, 112);
+  background-color: black;
   font-family: sans-serif;
 }
 
 #board {
   display: grid;
-  grid-template-columns: auto auto auto;
-  width: 400px;
-  height: 400px;
-  background-color: lightseagreen;
-  gap: 10px;
+  grid-template-columns: 33% 33% 33%;
+  grid-template-rows: 33% 33% 33%;
+  width: 550px;
+  height: 550px;
+  background-color: whitesmoke;
+  gap: 5px;
 }
 
 .square {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(22, 22, 142);
+  background-color: black;
   color: white;
-  font-size: 60px;
+  font-size: 150px;
 }
