@@ -12,8 +12,11 @@ function addText(id) {
   } else {
     player = "x";
   }
+  checkForWin();
 }
 
 function checkForWin() {
-  if (board[0][0] == "x" && board[0][1] == "x" && board[0][2]);
+  if (board[0][0] == "x" && board[0][1] == "x" && board[0][2] == "x") {
+    document.getElementById("result").innerHTML = "X Wins!";
+  }
 }
