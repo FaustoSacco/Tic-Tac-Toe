@@ -1,9 +1,11 @@
 let board = ["", "", "", "", "", "", "", "", ""];
 let player = "x";
 let finish = false;
+let turn = 1;
 
 function addText(id) {
   if (finish == false) {
+    turn++;
     if (board[id] == "") {
       document.getElementById(id).innerHTML = player;
       if (player == "x") {
@@ -15,7 +17,7 @@ function addText(id) {
         checkForWin();
         player = "x";
       }
-      console.log(board);
+      console.log(turn);
     }
   } else {
     resetGame();
@@ -50,6 +52,10 @@ function checkForWin() {
   if (finish == true) {
     document.getElementById("result").innerHTML =
       player.toUpperCase() + " wins";
+  }
+  if (finish == false && turn == 10) {
+    document.getElementById("result").innerHTML = "Tie";
+    finish = true;
   }
 }
 
