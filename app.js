@@ -17,6 +17,8 @@ function addText(id) {
       }
       console.log(board);
     }
+  } else {
+    resetGame();
   }
 }
 
@@ -46,7 +48,8 @@ function checkForWin() {
     finish = true;
   }
   if (finish == true) {
-    document.getElementById("result").innerHTML = player + " Wins";
+    document.getElementById("result").innerHTML =
+      player.toUpperCase() + " wins";
   }
 }
 
@@ -54,4 +57,8 @@ function resetGame() {
   board = ["", "", "", "", "", "", "", "", ""];
   player = "x";
   finish = false;
+  for (let i = 0; i < 9; i++) {
+    document.getElementById(i).innerHTML = "";
+  }
+  document.getElementById("result").innerHTML = "";
 }
