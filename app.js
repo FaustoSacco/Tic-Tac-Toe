@@ -2,26 +2,37 @@ let board = ["", "", "", "", "", "", "", "", ""];
 let player = "x";
 let finish = false;
 let turn = 1;
+let availableSquares = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 function addText(id) {
   if (finish == false) {
     turn++;
     if (board[id] == "") {
+      // add delete elements here
       document.getElementById(id).innerHTML = player;
-      if (player == "x") {
-        board[id] = "x";
-        checkForWin();
+
+      availableSquares = availableSquares.filter((number) => number != id);
+      console.log(availableSquares);
+      board[id] = "x";
+      checkForWin();
+      if (finish == false) {
+        turn++;
         player = "o";
-      } else {
-        board[id] = "o";
+        let randomSquare = chooseRandomSquare();
+        document.getElementById(randomSquare).innerHTML = player;
+        board[randomSquare] = "o";
         checkForWin();
         player = "x";
       }
-      console.log(turn);
     }
   } else {
     resetGame();
   }
+}
+
+function chooseRandomSquare() {
+  let index = Math.floor(Math.random() * availableSquares.length);
+  return availableSquares[index];
 }
 
 function checkForWin() {
